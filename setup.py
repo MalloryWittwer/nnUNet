@@ -32,7 +32,7 @@ setup(name='nnunetv2',
           "seaborn",
           "imagecodecs",
           "yacs",
-          "csbdeep"
+        #   "csbdeep"
       ],
       entry_points={
           'console_scripts': [
