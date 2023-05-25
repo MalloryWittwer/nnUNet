@@ -94,19 +94,23 @@ class RGBTo01Normalization(ImageNormalization):
         return image
 
 
-# import csbdeep.utils
-
 class CsbDeepNormalization(ImageNormalization):
     leaves_pixels_outside_mask_at_zero_if_use_mask_for_norm_is_true = False
 
     def run(self, image: np.ndarray, seg: np.ndarray = None) -> np.ndarray:
+        import csbdeep.utils
         image = image.astype(self.target_dtype)
+        image = csbdeep.utils.normalize(image, 2, 98, axis=(0, 1, 2))
+        return image
 
-        # image = csbdeep.utils.normalize(image, 2, 98, axis=(0, 1, 2))
 
+class PercentileNormalization(ImageNormalization):
+    leaves_pixels_outside_mask_at_zero_if_use_mask_for_norm_is_true = False
+
+    def run(self, image: np.ndarray, seg: np.ndarray = None) -> np.ndarray:
+        image = image.astype(self.target_dtype)
         mi = np.percentile(image, 2)
         ma = np.percentile(image, 98)
-
         image = (image - mi) / ( ma - mi + 1e-20 )
 
         return image
