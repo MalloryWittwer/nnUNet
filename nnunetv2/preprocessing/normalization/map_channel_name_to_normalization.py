@@ -2,7 +2,7 @@ from typing import Type
 
 from nnunetv2.preprocessing.normalization.default_normalization_schemes import CTNormalization, NoNormalization, \
     ZScoreNormalization, RescaleTo01Normalization, RGBTo01Normalization, ImageNormalization, \
-    CsbDeepNormalization, PercentileNormalization
+    PercentileNormalization#, CsbDeepNormalization
 
 channel_name_to_normalization_mapping = {
     'CT': CTNormalization,
