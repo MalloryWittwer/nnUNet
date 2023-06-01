@@ -94,16 +94,6 @@ class RGBTo01Normalization(ImageNormalization):
         return image
 
 
-# class CsbDeepNormalization(ImageNormalization):
-#     leaves_pixels_outside_mask_at_zero_if_use_mask_for_norm_is_true = False
-
-#     def run(self, image: np.ndarray, seg: np.ndarray = None) -> np.ndarray:
-#         import csbdeep.utils
-#         image = image.astype(self.target_dtype)
-#         image = csbdeep.utils.normalize(image, 2, 98, axis=(0, 1, 2))
-#         return image
-
-
 class CsbDeepNormalization(ImageNormalization):
     leaves_pixels_outside_mask_at_zero_if_use_mask_for_norm_is_true = False
 
