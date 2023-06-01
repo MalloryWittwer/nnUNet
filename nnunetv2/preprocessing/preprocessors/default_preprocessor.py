@@ -313,9 +313,9 @@ class CustomPreprocessor(DefaultPreprocessor):
         old_shape = data.shape[1:]
         data = configuration_manager.resampling_fn_data(data, new_shape, original_spacing, target_spacing)
         seg = configuration_manager.resampling_fn_seg(seg, new_shape, original_spacing, target_spacing)
-        if self.verbose:
-            print(f'old shape: {old_shape}, new_shape: {new_shape}, old_spacing: {original_spacing}, '
-                  f'new_spacing: {target_spacing}, fn_data: {configuration_manager.resampling_fn_data}')
+        # if self.verbose:
+        print(f'old shape: {old_shape}, new_shape: {new_shape}, old_spacing: {original_spacing}, '
+                f'new_spacing: {target_spacing}, fn_data: {configuration_manager.resampling_fn_data}')
 
         # if we have a segmentation, sample foreground locations for oversampling and add those to properties
         if has_seg:
